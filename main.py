@@ -17,7 +17,7 @@ URLS = [
     'avtolider_varshavka_moskva',
     'prime_moskva'
 ]
-CHAT = '@calls_from_office'
+CHAT = '@autograd11'
 PRE_URL = 'https://auto.ru/diler/cars/used/'
 TLG_TOKEN = os.getenv('TOKEN')
 HEADERS = {'accept': '*/*', 'user-agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) '
@@ -50,19 +50,14 @@ def message(text: str) -> None:
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while True:
-        time_now = datetime.now()# + datetime.timedelta(hours=3)
+        time_now = datetime.now() + datetime.timedelta(hours=3)
         h = time_now.hour
         count = 0
         if h in range(9, 21):
             for url in URLS:
                 count += counter(url)
-            if count < 500:
-                text = f'База опустилась до:\n{count} объявлений'
-                message(text)
-            elif h == 14:
-                text = f'Текущий сток:\n{count} объявлений'
-                print(text)
-                message(text)
+            text = f'Текущая база:\n{count} объявлений'
+            message(text)
             sleep(3600)
         else:
             sleep(46000)
