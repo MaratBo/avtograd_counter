@@ -1,5 +1,6 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
+
 from bs4 import BeautifulSoup as bs
 from time import sleep
 import requests
@@ -50,12 +51,13 @@ def message(text: str) -> None:
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while True:
-        time_now = datetime.now() + datetime.timedelta(hours=3)
+        time_now = datetime.now()# + timedelta(hours=3)
         h = time_now.hour
         count = 0
         if h in range(9, 21):
             for url in URLS:
                 count += counter(url)
+                print(count)
             text = f'Текущая база:\n{count} объявлений'
             message(text)
             sleep(3600)
