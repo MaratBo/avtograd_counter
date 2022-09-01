@@ -18,6 +18,10 @@ URLS = [
     'avtolider_varshavka_moskva',
     'prime_moskva'
 ]
+URL2 = ['carwin_moskva']
+
+
+
 CHAT = '@autograd11'
 PRE_URL = 'https://auto.ru/diler/cars/used/'
 TLG_TOKEN = os.getenv('TOKEN')
@@ -51,7 +55,7 @@ def message(text: str) -> None:
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while True:
-        time_now = datetime.now()# + timedelta(hours=3)
+        time_now = datetime.now() + timedelta(hours=3)
         h = time_now.hour
         count = 0
         if h in range(9, 21):
@@ -60,6 +64,6 @@ if __name__ == '__main__':
                 print(count)
             text = f'Текущая база:\n{count} объявлений'
             message(text)
-            sleep(3600)
+            sleep(14500)
         else:
-            sleep(46000)
+            sleep(15000)
