@@ -39,6 +39,7 @@ def counter(url: str) -> int:
         get_info_ON_button = str(count).split('Показать ')[1]
         numb = re.sub('\D', '', get_info_ON_button)
     except AttributeError:
+        print('FAULT line 38')
         numb = 0
     return int(numb)
 
@@ -62,6 +63,7 @@ if __name__ == '__main__':
             for url in URLS:
                 count += counter(url)
                 print(count)
+                print('FAULT line 64')
             text = f'Текущая база:\n{count} объявлений'
             message(text)
             sleep(14500)
